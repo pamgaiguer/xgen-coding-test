@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Lista de Series da Marvel</h1>
+
+  <div class="search-container">
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="searchTitle"
+      (ngModelChange)="searchSeries()"
+      placeholder="Buscar por título"
+    />
+    &nbsp;
+    <p-button (click)="searchSeries()" label="Buscar"></p-button>
+  </div>
+  <br />
+  <div class="serie-list">
+    <div *ngFor="let serie of filteredSeries">
+      <div class="series-card" [routerLink]="['/series', serie.id]">
+        <p-image
+          [src]="serie.thumbnail.path + '.' + serie.thumbnail.extension"
+          alt="Image"
+          [preview]="true"
+          width="250px"
+        ></p-image>
+        <h3>{{ serie.title }}</h3>
+        <p>{{ serie.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

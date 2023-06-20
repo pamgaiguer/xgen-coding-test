@@ -1,0 +1,13 @@
+<div class="container" *ngIf="serie">
+  <h1>{{ serie.title }}</h1>
+
+  <div class="serie-detail">
+    <p-image
+      [src]="serie.thumbnail.path + '.' + serie.thumbnail.extension"
+      [preview]="true"
+      width="450px"
+    ></p-image>
+    <p *ngIf="serie.description">{{ serie.description }}</p>
+    <p *ngIf="!serie.description">Nenhuma descrição disponível</p>
+  </div>
+</div>
